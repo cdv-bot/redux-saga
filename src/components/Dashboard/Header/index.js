@@ -17,9 +17,11 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import style from './style';
 import { useDispatch } from 'react-redux';
 import * as typeUi from './../../../actions/ui';
+import { useHistory } from "react-router-dom";
 
 
 const Header = ({ classes, name }) => {
+  let history = useHistory();
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -34,10 +36,8 @@ const Header = ({ classes, name }) => {
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-
   const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
+    history.push("/login");
   };
 
   const handleMobileMenuOpen = (event) => {
